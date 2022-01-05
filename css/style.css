@@ -53,21 +53,34 @@ body {
     margin: 0 auto;
     padding-top: 10px;
     padding-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 .header-name {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 22px;
     margin: 0;
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
 }
 .contacts {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: -webkit-min-content -webkit-min-content -webkit-min-content;
+    -ms-grid-columns: min-content min-content min-content;
+    grid-template-columns: -webkit-min-content -webkit-min-content -webkit-min-content;
     grid-template-columns: min-content min-content min-content;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .contacts__link {
     margin: 0;
@@ -78,7 +91,8 @@ body {
     margin-right: 20px;
 }
 .contacts__link:not(:first-child):hover svg {
-    filter: invert(100%);
+    -webkit-filter: invert(100%);
+            filter: invert(100%);
 }
 .contacts__link:last-child {
     margin-right: 0;
@@ -109,10 +123,16 @@ body {
 }
 .work__item {
     padding: 15px 0;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
     transition: .5s;
 }
 .work__item:hover {
-    transform: translateX(10px);
+    -webkit-transform: translateX(10px);
+        -ms-transform: translateX(10px);
+            transform: translateX(10px);
+    -webkit-transition: .5s;
+    -o-transition: .5s;
     transition: .5s;
 }
 .work__item:hover .works__description::before {
@@ -125,7 +145,9 @@ body {
     padding-bottom: 35px;
 }
 .contacts--footer {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 .visually-hidden {
     position: absolute;
@@ -136,13 +158,16 @@ body {
     border: 0;
     padding: 0;
     white-space: nowrap;
-    clip-path: inset(100%);
+    -webkit-clip-path: inset(100%);
+            clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
   }
   @media screen and (max-width: 425px) {
       .header-wrapper {
-          justify-content: center;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
       }
       .contacts {
           margin-top: 25px;
