@@ -26,6 +26,8 @@
 
 html {
     height: 100%;
+    margin: 0;
+    padding: 0;
   }
 body {
     margin: 0;
@@ -38,7 +40,78 @@ body {
     color: #000;
     background-color: #fff;
   }
-
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.header {
+    background-color: #CCC;
+}
+.header-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.header-name {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 22px;
+    margin: 0;
+    align-self: center;
+}
+.contacts {
+    display: grid;
+    grid-template-columns: min-content min-content min-content;
+    align-items: center;
+}
+.contacts__link {
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    min-width: 30px;
+    line-height: 30px;
+    margin-right: 20px;
+}
+.contacts__link:last-child {
+    margin-right: 0;
+}
+.main-page {
+    padding-top: 5px;
+}
+.main-heading {
+    margin: 1.5em 0;
+    line-height: 1.1em;
+}
+.works__termin {
+    margin-top: 1.3em;
+}
+.works__description {
+    position: relative;
+}
+.works__description::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: url(../images/check-circle.svg) no-repeat 50% 50%;
+    background-size: contain;
+    top: 3px;
+    left: -20px;
+}
+.footer {
+    background-color: #a3a3a3;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+.contacts--footer {
+    justify-content: center;
+}
 .visually-hidden {
     position: absolute;
     clip: rect(0 0 0 0);
@@ -51,4 +124,17 @@ body {
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
+  }
+  @media screen and (max-width: 425px) {
+      .header-wrapper {
+          justify-content: center;
+      }
+      .contacts {
+          margin-top: 25px;
+      }
+      .main-heading {
+        margin: 1em 0;
+        text-align: center;
+      }
+      
   }

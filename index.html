@@ -10,13 +10,127 @@
 </head>
 <body>
     <header class="header">
-        
+        <div class="header-wrapper">
+            <p class="header-name">
+                Михаил Захаров
+            </p>
+            <div class="contacts">
+                <a class="contacts__link contacts__link--email" href="mailto:erreal@yandex.ru" target="_blank">
+                    erreal@yandex.ru
+                </a>
+                <a class="contacts__link contacts__link--linkedin" href="https://www.linkedin.com/in/mikhail-zakharov-9027b184/" target="_blank">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        viewBox="0 0 504.4 504.4" style="enable-background:new 0 0 504.4 504.4;" xml:space="preserve" width="30" height="30">
+                    <g>
+                        <g>
+                            <path d="M377.6,0.2H126.4C56.8,0.2,0,57,0,126.6v251.6c0,69.2,56.8,126,126.4,126H378c69.6,0,126.4-56.8,126.4-126.4V126.6
+                                C504,57,447.2,0.2,377.6,0.2z M168,408.2H96v-208h72V408.2z M131.6,168.2c-20.4,0-36.8-16.4-36.8-36.8c0-20.4,16.4-36.8,36.8-36.8
+                                c20.4,0,36.8,16.4,36.8,36.8C168,151.8,151.6,168.2,131.6,168.2z M408.4,408.2H408h-60V307.4c0-24.4-3.2-55.6-36.4-55.6
+                                c-34,0-39.6,26.4-39.6,54v102.4h-60v-208h56v28h1.6c8.8-16,29.2-28.4,61.2-28.4c66,0,77.6,38,77.6,94.4V408.2z"/>
+                        </g>
+                    </g>
+                    </svg>
+                </a>
+                <a class="contacts__link contacts__link--github" href="https://github.com/Erreal" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                    aria-label="GitHub" role="img"
+                    viewBox="0 0 512 512">
+                    <rect width="512" height="512"
+                    rx="15%"
+                    fill="#1B1817"/>
+                    <path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+                </a>
+            </div>
+        </div>
     </header>
     <main class="main-page">
-        
+        <div class="container">
+            <h1 class="main-heading">Здравствуйте! Я - веб-разработчик Михаил Захаров.</h1>
+            <p class="heading-slogan">На этой страничке я собрал навыки и технологии с которыми я работал, а так же список проектов в которых я участвовал, либо создавал с нуля.</p>
+            <section class="tech">
+                <h2 class="tech__heading">Технологии с которыми я работал и работаю:</h2>
+                <ul class="tech__list">
+                    <li class="tech__item">HTML/CSS (flex, grid, верстка Email рассылок)</li>
+                    <li class="tech__item">Препроцессоры: Less/Sass</li>
+                    <li class="tech__item">Именование БЭМ</li>
+                    <li class="tech__item">Сборщики: Gulp/Webpack</li>
+                    <li class="tech__item">Фреймворк: Bootstrap</li>
+                    <li class="tech__item">JQuery/AJAX</li>
+                    <li class="tech__item">JavaScript</li>
+                    <li class="tech__item">SQL</li>
+                    <li class="tech__item">PHP</li>
+                    <li class="tech__item">Обмен данными: csv, yml, xml, yaml, json</li>
+                    <li class="tech__item">CMS: Webasyst, Joomla!, Wordpress, OpenCart, osCommerce, SantaFox, 1С-Битрикс</li>
+                    <li class="tech__item">Шаблонизаторы: Smarty</li>
+                    <li class="tech__item">RESTapi</li>
+                </ul>
+            </section>
+            <section class="works">
+                <h2>Проекты в которых я участвовал и мои работы</h2>
+                <dl class="works__list">
+                    <dt class="works__termin"><a href="https://all-coolers.ru" target="_blank">Интернет-магазин оборудования для воды All-coolers.ru </a></dt>
+                    <dd class="works__description">Создание интернет-магазина (Webasyst ShopScript)</dd>
+                    <dd class="works__description">Доработка шаблона (HTML, CSS, Smarty3, Jquery)</dd>
+                    <dd class="works__description">Автоматизация обновления базы товаров из данных поставщиков (PHP, SQL, XML, CSV, Парсинг сайтов)</dd>                
+
+                    <dt class="works__termin"><a href="https://ormamebel.ru" target="_blank">Интернет-магазин мебели ormamebel.ru</a></dt>
+                    <dd class="works__description">Доработка шаблона фронтенда (HTML, CSS, Smarty3, Jquery) / бэкенда (Smarty3, PHP, JavaScript)</dd>
+                    <dd class="works__description">Автоматизация обновления базы товаров из данных поставщика (XML)</dd>
+                    <dd class="works__description">Верстка страниц и элементов шаблона по макетам</dd>
+                    
+                    <dt class="works__termin"><a href="https://aquaborn.ru" target="_blank">Лендинг службы доставки воды</a></dt>
+                    <dd class="works__description">"Дизайн" (Photoshop)</dd>
+                    <dd class="works__description">Верстка по макету, скрипты (Bootstrap, JQuery, PHP)</dd>
+
+                    <dt class="works__termin"><a href="https://stal-x.ru" target="_blank">Интернет-магазин мужских подарков Stal&X </a></dt>
+                    <dd class="works__description">Создание интернет-магазина (Webasyst ShopScript)</dd>
+                    <dd class="works__description">Доработка шаблона (HTML, CSS, Smarty3, Jquery)</dd>
+                    <dd class="works__description">Автоматизация обновления базы товаров из данных поставщиков (XLS прайс-лист)</dd>   
+
+                    <dt class="works__termin"><a href="https://filter-profi.ru" target="_blank">Лендинг сервис-центра по обслуживанию пурифайеров</a></dt>
+                    <dd class="works__description">"Дизайн" (Photoshop)</dd>
+                    <dd class="works__description">Верстка по макету, скрипты (Bootstrap, JQuery)</dd>
+                    
+                    <dt class="works__termin"><a href="http://200.mcdir.ru/" target="_blank">Лендинг агентства ритуальных услуг</a></dt>
+                    <dd class="works__description">Верстка по макету (Bootstrap)</dd>
+
+                    <dt class="works__termin"><a href="https://hdgroup.ru" target="_blank">Интернет-магазин товаров для сна HomeDesign Group</a></dt>
+                    <dd class="works__description">Доработка шаблона фронтенда (HTML, CSS, Smarty3)</dd>
+                    
+                </dl>
+            </section>
+        </div>
     </main>
     <footer class="footer">
-
+        <div class="container">
+            <div class="contacts contacts--footer">
+                <a class="contacts__link contacts__link--email" href="mailto:erreal@yandex.ru" target="_blank">
+                    erreal@yandex.ru
+                </a>
+                <a class="contacts__link contacts__link--linkedin" href="https://www.linkedin.com/in/mikhail-zakharov-9027b184/" target="_blank">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        viewBox="0 0 504.4 504.4" style="enable-background:new 0 0 504.4 504.4;" xml:space="preserve" width="30" height="30">
+                    <g>
+                        <g>
+                            <path d="M377.6,0.2H126.4C56.8,0.2,0,57,0,126.6v251.6c0,69.2,56.8,126,126.4,126H378c69.6,0,126.4-56.8,126.4-126.4V126.6
+                                C504,57,447.2,0.2,377.6,0.2z M168,408.2H96v-208h72V408.2z M131.6,168.2c-20.4,0-36.8-16.4-36.8-36.8c0-20.4,16.4-36.8,36.8-36.8
+                                c20.4,0,36.8,16.4,36.8,36.8C168,151.8,151.6,168.2,131.6,168.2z M408.4,408.2H408h-60V307.4c0-24.4-3.2-55.6-36.4-55.6
+                                c-34,0-39.6,26.4-39.6,54v102.4h-60v-208h56v28h1.6c8.8-16,29.2-28.4,61.2-28.4c66,0,77.6,38,77.6,94.4V408.2z"/>
+                        </g>
+                    </g>
+                    </svg>
+                </a>
+                <a class="contacts__link contacts__link--github" href="https://github.com/Erreal" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                    aria-label="GitHub" role="img"
+                    viewBox="0 0 512 512">
+                    <rect width="512" height="512"
+                    rx="15%"
+                    fill="#1B1817"/>
+                    <path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+                </a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
