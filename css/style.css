@@ -77,6 +77,9 @@ body {
     line-height: 30px;
     margin-right: 20px;
 }
+.contacts__link:not(:first-child):hover svg {
+    filter: invert(100%);
+}
 .contacts__link:last-child {
     margin-right: 0;
 }
@@ -103,6 +106,18 @@ body {
     background-size: contain;
     top: 3px;
     left: -20px;
+}
+.work__item {
+    padding: 15px 0;
+    transition: .5s;
+}
+.work__item:hover {
+    transform: translateX(10px);
+    transition: .5s;
+}
+.work__item:hover .works__description::before {
+    background: url(../images/check-circle-red.svg) no-repeat 50% 50%; 
+    background-size: contain;  
 }
 .footer {
     background-color: #a3a3a3;
