@@ -1,5 +1,27 @@
 {
+  "name": "my_dev",
+  "version": "1.0.0",
+  "description": "Web-site portfolio",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.76.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erreal/my_dev.git"
+  },
+  "author": "Erreal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erreal/my_dev/issues"
+  },
+  "homepage": "https://github.com/Erreal/my_dev#readme",
   "dependencies": {
-    "gulp": "^5.0.0"
+    "require-dir": "^1.2.0"
   }
 }
