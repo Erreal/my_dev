@@ -1,0 +1,40 @@
+{
+  "navigation": {
+    "portfolio": "Портфолио",
+    "experience": "Опыт",
+    "contact": "Контакты"
+  },
+  "home": {
+    "view_portfolio": "Смотреть портфолио",
+    "download_resume": "Скачать резюме",
+    "focus_areas": "Ключевые направления",
+    "tech_stack": "Технологический стек",
+    "featured_projects": "Избранные проекты"
+  },
+  "portfolio": {
+    "title": "Портфолио",
+    "all": "Все",
+    "role": "Роль",
+    "status": "Статус",
+    "external_url": "Внешняя ссылка",
+    "technologies": "Технологии",
+    "responsibilities": "Обязанности",
+    "back_to_portfolio": "Назад к портфолио"
+  },
+  "experience": {
+    "title": "Опыт работы",
+    "present": "Настоящее время"
+  },
+  "contact": {
+    "title": "Контакты",
+    "get_in_touch": "Свяжитесь со мной"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "not_found": "Страница не найдена",
+    "theme_light": "Светлая тема",
+    "theme_dark": "Тёмная тема",
+    "language": "Язык"
+  }
+}
