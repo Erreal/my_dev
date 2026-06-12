@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import type { Locale } from "@/lib/types";
 import { locales } from "@/lib/i18n";
 import { getProjectBySlug, getSiteData } from "@/lib/data";
@@ -9,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { ScreenshotGallery } from "@/components/portfolio/ScreenshotGallery";
 import { FadeIn } from "@/components/shared/FadeIn";
+import { JsonLd } from "@/components/shared/JsonLd";
 
 export async function generateStaticParams() {
   const { projects } = getSiteData();
@@ -22,6 +24,45 @@ export async function generateStaticParams() {
   }
 
   return params;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const locale = lang as Locale;
+  const project = getProjectBySlug(slug, locale);
+
+  if (!project) {
+    return { title: "Not Found" };
+  }
+
+  const title = getLocalizedField(project.title_ru, project.title_en, locale);
+  const description = getLocalizedField(
+    project.short_description_ru,
+    project.short_description_en,
+    locale
+  );
+
+  return {
+    title,
+    description: description ?? undefined,
+    alternates: {
+      languages: {
+        "ru": `/ru/portfolio/${project.slug_ru}`,
+        "en": `/en/portfolio/${project.slug_en}`,
+      },
+    },
+    openGraph: {
+      title: `${title} | Mikhail Zakharov`,
+      description: description ?? undefined,
+      url: `https://erreality.ru/${locale}/portfolio/${slug}`,
+      locale: locale === "ru" ? "ru_RU" : "en_US",
+      type: "article",
+    },
+  };
 }
 
 export default async function ProjectDetailPage({
@@ -44,6 +85,11 @@ export default async function ProjectDetailPage({
     project.full_description_en,
     locale
   );
+  const shortDescription = getLocalizedField(
+    project.short_description_ru,
+    project.short_description_en,
+    locale
+  );
   const role = getLocalizedField(project.role_ru, project.role_en, locale);
   const responsibilities = getLocalizedField(
     project.responsibilities_ru,
@@ -59,6 +105,23 @@ export default async function ProjectDetailPage({
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-24">
+      {/* JSON-LD CreativeWork Schema */}
+      <JsonLd
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          name: title,
+          description: shortDescription ?? fullDescription,
+          url: `https://erreality.ru/${locale}/portfolio/${slug}`,
+          author: {
+            "@type": "Person",
+            name: "Mikhail Zakharov",
+          },
+          keywords: project.technologies.map((t) => t.name).join(", "),
+          ...(project.external_url ? { sameAs: project.external_url } : {}),
+        }}
+      />
+
       {/* Back link */}
       <FadeIn direction="up">
         <Link

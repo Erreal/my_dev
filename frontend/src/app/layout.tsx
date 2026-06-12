@@ -9,10 +9,20 @@ export const metadata: Metadata = {
   description:
     "Senior Frontend Developer with 15+ years of commercial experience. Specializing in React, TypeScript, and Frontend Architecture.",
   metadataBase: new URL("https://erreality.ru"),
+  alternates: {
+    languages: {
+      "ru": "/ru",
+      "en": "/en",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "ru_RU",
     siteName: "Mikhail Zakharov",
+    title: "Mikhail Zakharov — Senior Frontend Developer",
+    description:
+      "Senior Frontend Developer with 15+ years of commercial experience. Specializing in React, TypeScript, and Frontend Architecture.",
+    url: "https://erreality.ru",
   },
   robots: {
     index: true,

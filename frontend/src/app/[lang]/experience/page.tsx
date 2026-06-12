@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { Locale } from "@/lib/types";
 import { locales } from "@/lib/i18n";
 import { getSiteData } from "@/lib/data";
@@ -7,6 +8,38 @@ import { FadeIn } from "@/components/shared/FadeIn";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = lang as Locale;
+
+  const title = locale === "ru" ? "Опыт работы" : "Experience";
+  const description =
+    locale === "ru"
+      ? "Мой профессиональный путь — от фриланса до Senior Frontend Developer в международных компаниях."
+      : "My professional journey — from freelancing to Senior Frontend Developer at international companies.";
+
+  return {
+    title,
+    description,
+    alternates: {
+      languages: {
+        "ru": "/ru/experience",
+        "en": "/en/experience",
+      },
+    },
+    openGraph: {
+      title: `${title} | Mikhail Zakharov`,
+      description,
+      url: `https://erreality.ru/${locale}/experience`,
+      locale: locale === "ru" ? "ru_RU" : "en_US",
+    },
+  };
 }
 
 export default async function ExperiencePage({

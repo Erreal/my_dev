@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { Locale } from "@/lib/types";
 import { locales } from "@/lib/i18n";
 import { getSiteData, getFeaturedProjects, getTechnologiesByCategory } from "@/lib/data";
@@ -7,9 +8,43 @@ import { TechStackSection } from "@/components/home/TechStackSection";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { ExperienceTimeline } from "@/components/experience/ExperienceTimeline";
 import { FadeIn } from "@/components/shared/FadeIn";
+import { JsonLd } from "@/components/shared/JsonLd";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = lang as Locale;
+  const { profile } = getSiteData();
+  const name = getLocalizedField(profile.name_ru, profile.name_en, locale);
+  const position = getLocalizedField(profile.position_ru, profile.position_en, locale);
+  const summary = getLocalizedField(profile.summary_ru, profile.summary_en, locale);
+
+  const title = `${name} — ${position}`;
+  const description = summary;
+
+  return {
+    title,
+    description,
+    alternates: {
+      languages: {
+        "ru": "/ru",
+        "en": "/en",
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://erreality.ru/${locale}`,
+      locale: locale === "ru" ? "ru_RU" : "en_US",
+    },
+  };
 }
 
 export default async function HomePage({
@@ -24,13 +59,45 @@ export default async function HomePage({
   const featuredProjects = getFeaturedProjects();
   const techByCategory = getTechnologiesByCategory();
 
+  const name = getLocalizedField(profile.name_ru, profile.name_en, locale);
+  const position = getLocalizedField(profile.position_ru, profile.position_en, locale);
+  const summary = getLocalizedField(profile.summary_ru, profile.summary_en, locale);
+
   return (
     <div className="mx-auto max-w-6xl px-6">
+      {/* JSON-LD Person Schema */}
+      <JsonLd
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name,
+          givenName: locale === "ru" ? "Михаил" : "Mikhail",
+          familyName: locale === "ru" ? "Захаров" : "Zakharov",
+          jobTitle: position,
+          description: summary,
+          email: profile.email,
+          url: "https://erreality.ru",
+          sameAs: [
+            profile.github_url,
+            profile.linkedin_url,
+          ].filter(Boolean),
+          knowsAbout: [
+            "React",
+            "TypeScript",
+            "JavaScript",
+            "Frontend Development",
+            "Web Development",
+            "GIS",
+            "UI/UX",
+          ],
+        }}
+      />
+
       {/* Hero Section */}
       <HeroSection
-        name={getLocalizedField(profile.name_ru, profile.name_en, locale)}
-        position={getLocalizedField(profile.position_ru, profile.position_en, locale)}
-        summary={getLocalizedField(profile.summary_ru, profile.summary_en, locale)}
+        name={name}
+        position={position}
+        summary={summary}
         githubUrl={profile.github_url}
         linkedinUrl={profile.linkedin_url}
         telegramUrl={profile.telegram_url}

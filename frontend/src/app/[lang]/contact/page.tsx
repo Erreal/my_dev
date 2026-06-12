@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { Locale } from "@/lib/types";
 import { locales } from "@/lib/i18n";
 import { getSiteData } from "@/lib/data";
@@ -8,6 +9,38 @@ import { FadeIn } from "@/components/shared/FadeIn";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = lang as Locale;
+
+  const title = locale === "ru" ? "Контакты" : "Contact";
+  const description =
+    locale === "ru"
+      ? "Свяжитесь со мной — я открыт к интересным проектам и предложениям о работе."
+      : "Get in touch — I'm open to interesting projects and job opportunities.";
+
+  return {
+    title,
+    description,
+    alternates: {
+      languages: {
+        "ru": "/ru/contact",
+        "en": "/en/contact",
+      },
+    },
+    openGraph: {
+      title: `${title} | Mikhail Zakharov`,
+      description,
+      url: `https://erreality.ru/${locale}/contact`,
+      locale: locale === "ru" ? "ru_RU" : "en_US",
+    },
+  };
 }
 
 export default async function ContactPage({
