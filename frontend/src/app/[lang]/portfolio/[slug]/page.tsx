@@ -7,6 +7,8 @@ import { getDictionary, getLocalizedField } from "@/lib/i18n";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ScreenshotGallery } from "@/components/portfolio/ScreenshotGallery";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 export async function generateStaticParams() {
   const { projects } = getSiteData();
@@ -58,108 +60,104 @@ export default async function ProjectDetailPage({
   return (
     <div className="mx-auto max-w-4xl px-6 py-24">
       {/* Back link */}
-      <Link
-        href={`/${locale}/portfolio`}
-        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-12"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        {dict.portfolio.back_to_portfolio}
-      </Link>
+      <FadeIn direction="up">
+        <Link
+          href={`/${locale}/portfolio`}
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-12"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          {dict.portfolio.back_to_portfolio}
+        </Link>
+      </FadeIn>
 
       {/* Header */}
-      <div className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight mb-4">{title}</h1>
+      <FadeIn direction="up" delay={100}>
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold tracking-tight mb-4">{title}</h1>
 
-        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-          {role && (
+          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+            {role && (
+              <div>
+                <span className="font-medium text-foreground">
+                  {dict.portfolio.role}:
+                </span>{" "}
+                {role}
+              </div>
+            )}
             <div>
               <span className="font-medium text-foreground">
-                {dict.portfolio.role}:
+                {dict.portfolio.status}:
               </span>{" "}
-              {role}
+              {statusLabels[project.status]?.[locale] ?? project.status}
             </div>
-          )}
-          <div>
-            <span className="font-medium text-foreground">
-              {dict.portfolio.status}:
-            </span>{" "}
-            {statusLabels[project.status]?.[locale] ?? project.status}
           </div>
         </div>
-      </div>
+      </FadeIn>
 
-      {/* Screenshots gallery */}
-      {project.screenshots && project.screenshots.length > 0 && (
-        <div className="mb-12 grid gap-4 md:grid-cols-2">
-          {project.screenshots.map((screenshot) => {
-            const screenshotTitle = getLocalizedField(
-              screenshot.title_ru,
-              screenshot.title_en,
-              locale
-            );
-            return (
-              <div
-                key={screenshot.id}
-                className="aspect-video bg-muted rounded-lg overflow-hidden"
-              >
-                <img
-                  src={`/screenshots/${screenshot.filename}`}
-                  alt={screenshotTitle ?? title}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            );
-          })}
-        </div>
-      )}
+      {/* Screenshots gallery with Lightbox */}
+      <FadeIn direction="up" delay={200}>
+        <ScreenshotGallery
+          screenshots={project.screenshots}
+          locale={locale}
+          projectTitle={title}
+        />
+      </FadeIn>
 
       {/* Full description */}
       {fullDescription && (
-        <div className="mb-12">
-          <p className="text-base leading-relaxed text-muted-foreground">
-            {fullDescription}
-          </p>
-        </div>
+        <FadeIn direction="up" delay={300}>
+          <div className="mb-12">
+            <p className="text-base leading-relaxed text-muted-foreground">
+              {fullDescription}
+            </p>
+          </div>
+        </FadeIn>
       )}
 
       {/* Responsibilities */}
       {responsibilities && (
-        <div className="mb-12">
-          <h2 className="text-lg font-semibold mb-3">
-            {dict.portfolio.responsibilities}
-          </h2>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {responsibilities}
-          </p>
-        </div>
+        <FadeIn direction="up" delay={400}>
+          <div className="mb-12">
+            <h2 className="text-lg font-semibold mb-3">
+              {dict.portfolio.responsibilities}
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {responsibilities}
+            </p>
+          </div>
+        </FadeIn>
       )}
 
       {/* Technologies */}
-      <div className="mb-12">
-        <h2 className="text-lg font-semibold mb-3">
-          {dict.portfolio.technologies}
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech) => (
-            <Badge key={tech.id} variant="secondary" className="rounded-full px-3 py-1">
-              {tech.name}
-            </Badge>
-          ))}
+      <FadeIn direction="up" delay={500}>
+        <div className="mb-12">
+          <h2 className="text-lg font-semibold mb-3">
+            {dict.portfolio.technologies}
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech) => (
+              <Badge key={tech.id} variant="secondary" className="rounded-full px-3 py-1">
+                {tech.name}
+              </Badge>
+            ))}
+          </div>
         </div>
-      </div>
+      </FadeIn>
 
       {/* External link */}
       {project.external_url && (
-        <a
-          href={project.external_url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button variant="outline" className="gap-2 rounded-full">
-            {dict.portfolio.external_url}
-            <ExternalLink className="h-4 w-4" />
-          </Button>
-        </a>
+        <FadeIn direction="up" delay={600}>
+          <a
+            href={project.external_url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="outline" className="gap-2 rounded-full">
+              {dict.portfolio.external_url}
+              <ExternalLink className="h-4 w-4" />
+            </Button>
+          </a>
+        </FadeIn>
       )}
     </div>
   );

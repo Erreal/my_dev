@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { TechStackSection } from "@/components/home/TechStackSection";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { ExperienceTimeline } from "@/components/experience/ExperienceTimeline";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
@@ -40,26 +41,32 @@ export default async function HomePage({
       />
 
       {/* Technology Stack */}
-      <TechStackSection
-        techByCategory={techByCategory}
-        title={dict.home.tech_stack}
-      />
+      <FadeIn direction="up" delay={100}>
+        <TechStackSection
+          techByCategory={techByCategory}
+          title={dict.home.tech_stack}
+        />
+      </FadeIn>
 
       {/* Featured Projects */}
-      <FeaturedProjects
-        projects={featuredProjects}
-        locale={locale}
-        title={dict.home.featured_projects}
-        viewAllText={dict.navigation.portfolio}
-      />
+      <FadeIn direction="up" delay={200}>
+        <FeaturedProjects
+          projects={featuredProjects}
+          locale={locale}
+          title={dict.home.featured_projects}
+          viewAllText={dict.navigation.portfolio}
+        />
+      </FadeIn>
 
       {/* Experience Timeline */}
-      <ExperienceTimeline
-        experience={experience}
-        locale={locale}
-        title={dict.experience.title}
-        presentText={dict.experience.present}
-      />
+      <FadeIn direction="up" delay={300}>
+        <ExperienceTimeline
+          experience={experience}
+          locale={locale}
+          title={dict.experience.title}
+          presentText={dict.experience.present}
+        />
+      </FadeIn>
     </div>
   );
 }
