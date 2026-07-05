@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "company_ru": "Xenus",
+    "company_en": "Xenus",
+    "position_ru": "Senior Frontend Developer",
+    "position_en": "Senior Frontend Developer",
+    "description_ru": "Разработка и поддержка крупных GIS-приложений и дашбордов. Работа с React, OpenLayers, Leaflet, Django REST Framework. Создание цифровых схем и картографических сервисов.",
+    "description_en": "Development and maintenance of large GIS applications and dashboards. Working with React, OpenLayers, Leaflet, Django REST Framework. Creating digital schemas and mapping services.",
+    "start_date": "2022-01-01",
+    "end_date": null,
+    "sort_order": 1
+  },
+  {
+    "id": 2,
+    "company_ru": "Beliani International GmbH",
+    "company_en": "Beliani International GmbH",
+    "position_ru": "Frontend Developer",
+    "position_en": "Frontend Developer",
+    "description_ru": "Доработка интернет-магазина и административной части. Работа с React/Redux, Smarty, WebSocket, REST API. Оптимизация производительности и улучшение пользовательского опыта.",
+    "description_en": "E-commerce platform development and maintenance. Working with React/Redux, Smarty, WebSocket, REST API. Performance optimization and UX improvements.",
+    "start_date": "2019-01-01",
+    "end_date": "2022-01-01",
+    "sort_order": 2
+  },
+  {
+    "id": 3,
+    "company_ru": "Фриланс / Собственные проекты",
+    "company_en": "Freelance / Own Projects",
+    "position_ru": "Full-stack Developer",
+    "position_en": "Full-stack Developer",
+    "description_ru": "Создание интернет-магазинов на Webasyst ShopScript. Разработка шаблонов (HTML, CSS, Smarty, jQuery). Автоматизация обновления базы товаров из данных поставщиков (PHP, SQL, XML, CSV, парсинг сайтов). Верстка лендингов и корпоративных сайтов.",
+    "description_en": "Building e-commerce stores on Webasyst ShopScript. Template development (HTML, CSS, Smarty, jQuery). Automation of product database updates from supplier data (PHP, SQL, XML, CSV, web scraping). Landing page and corporate site development.",
+    "start_date": "2008-01-01",
+    "end_date": "2019-01-01",
+    "sort_order": 3
+  }
+]

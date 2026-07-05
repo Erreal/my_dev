@@ -1,0 +1,40 @@
+{
+  "navigation": {
+    "portfolio": "Portfolio",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "home": {
+    "view_portfolio": "View Portfolio",
+    "download_resume": "Download Resume",
+    "focus_areas": "Focus Areas",
+    "tech_stack": "Technology Stack",
+    "featured_projects": "Featured Projects"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "all": "All",
+    "role": "Role",
+    "status": "Status",
+    "external_url": "External URL",
+    "technologies": "Technologies",
+    "responsibilities": "Responsibilities",
+    "back_to_portfolio": "Back to Portfolio"
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "Present"
+  },
+  "contact": {
+    "title": "Contact",
+    "get_in_touch": "Get in Touch"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "not_found": "Page not found",
+    "theme_light": "Light mode",
+    "theme_dark": "Dark mode",
+    "language": "Language"
+  }
+}
